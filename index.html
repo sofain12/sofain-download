@@ -1,150 +1,442 @@
-#334155;
-            background: #0f172a;
-            color: white;
-            font-size: 16px;
-            outline: none;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SOFAIN DOWNLOAD</title>
+    <meta name="description" content="SOFAIN DOWNLOAD - Download popular software for Windows, Linux and more.">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        #search:focus {
-            border-color: #38bdf8;
-            box-shadow: 0 0 15px #0ea5e933;
+        :root {
+            --bg: #07090f;
+            --bg2: #0b0f19;
+            --card: #101521;
+            --card-hover: #151d2d;
+            --border: #202b3d;
+            --text: #f5f7fb;
+            --muted: #8d99aa;
+            --blue: #3b82f6;
+            --cyan: #00e5ff;
+            --green: #22c55e;
+            --purple: #8b5cf6;
         }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background:
+                radial-gradient(circle at 15% 10%, rgba(0,229,255,.08), transparent 30%),
+                radial-gradient(circle at 85% 20%, rgba(139,92,246,.10), transparent 30%),
+                var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+        }
+
+        /* ================= HEADER ================= */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(18px);
+            background: rgba(7,9,15,.82);
+            border-bottom: 1px solid rgba(255,255,255,.06);
+        }
+
+        .nav {
+            max-width: 1250px;
+            margin: auto;
+            height: 72px;
+            padding: 0 22px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            color: white;
+        }
+
+        .logo span {
+            color: var(--cyan);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 14px;
+            transition: .2s;
+        }
+
+        .nav-links a:hover {
+            color: white;
+        }
+
+        /* ================= HERO ================= */
+
+        .hero {
+            max-width: 1250px;
+            margin: auto;
+            padding: 85px 22px 55px;
+            text-align: center;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 8px 15px;
+            border: 1px solid rgba(0,229,255,.25);
+            border-radius: 50px;
+            background: rgba(0,229,255,.06);
+            color: var(--cyan);
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin-bottom: 22px;
+        }
+
+        .hero h1 {
+            font-size: clamp(42px, 8vw, 78px);
+            line-height: .95;
+            font-weight: 950;
+            letter-spacing: -4px;
+            margin-bottom: 22px;
+        }
+
+        .hero h1 span {
+            color: var(--cyan);
+            text-shadow: 0 0 30px rgba(0,229,255,.25);
+        }
+
+        .hero p {
+            max-width: 650px;
+            margin: auto;
+            color: var(--muted);
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        /* ================= SEARCH ================= */
+
+        .search-box {
+            max-width: 700px;
+            margin: 35px auto 0;
+            position: relative;
+        }
+
+        .search-box input {
+            width: 100%;
+            height: 58px;
+            padding: 0 22px 0 52px;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            outline: none;
+            background: rgba(16,21,33,.9);
+            color: white;
+            font-size: 15px;
+            transition: .2s;
+        }
+
+        .search-box input:focus {
+            border-color: var(--cyan);
+            box-shadow: 0 0 0 4px rgba(0,229,255,.07);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 20px;
+            top: 18px;
+            color: var(--muted);
+            font-size: 20px;
+        }
+
+        /* ================= CATEGORIES ================= */
 
         .categories {
+            max-width: 1250px;
+            margin: 10px auto 35px;
+            padding: 0 22px;
             display: flex;
-            justify-content: center;
             gap: 10px;
             flex-wrap: wrap;
-            padding: 10px 20px 30px;
+            justify-content: center;
         }
 
         .category {
-            border: 1px solid #334155;
-            background: #0f172a;
-            color: #cbd5e1;
-            padding: 10px 18px;
-            border-radius: 999px;
+            border: 1px solid var(--border);
+            background: #0d121c;
+            color: var(--muted);
+            padding: 10px 17px;
+            border-radius: 50px;
             cursor: pointer;
-            transition: 0.2s;
+            font-size: 13px;
+            transition: .2s;
         }
 
         .category:hover,
         .category.active {
-            background: #0284c7;
-            border-color: #38bdf8;
             color: white;
+            border-color: var(--cyan);
+            background: rgba(0,229,255,.08);
         }
 
-        .container {
-            max-width: 1200px;
+        /* ================= MAIN ================= */
+
+        main {
+            max-width: 1250px;
             margin: auto;
-            padding: 20px;
+            padding: 0 22px 80px;
         }
 
         .section-title {
-            margin: 20px 0;
-            font-size: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 35px 0 18px;
         }
 
-        .grid {
+        .section-title h2 {
+            font-size: 22px;
+        }
+
+        .count {
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .apps {
             display: grid;
-            grid-template-columns:
-                repeat(auto-fit, minmax(260px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
         }
 
-        .card {
-            background: rgba(15, 23, 42, 0.9);
-            border: 1px solid #1e293b;
+        /* ================= APP CARD ================= */
+
+        .app {
+            position: relative;
+            background: linear-gradient(
+                145deg,
+                rgba(16,21,33,.96),
+                rgba(10,14,23,.96)
+            );
+            border: 1px solid var(--border);
             border-radius: 20px;
-            padding: 22px;
-            transition: 0.25s;
-            backdrop-filter: blur(10px);
+            padding: 20px;
+            transition: .25s;
+            overflow: hidden;
         }
 
-        .card:hover {
+        .app::before {
+            content: "";
+            position: absolute;
+            width: 130px;
+            height: 130px;
+            right: -70px;
+            top: -70px;
+            background: rgba(0,229,255,.08);
+            border-radius: 50%;
+            filter: blur(10px);
+        }
+
+        .app:hover {
             transform: translateY(-5px);
-            border-color: #38bdf8;
-            box-shadow: 0 10px 35px #00000055;
+            border-color: rgba(0,229,255,.35);
+            background: var(--card-hover);
+            box-shadow: 0 15px 45px rgba(0,0,0,.25);
         }
 
-        .icon {
-            width: 60px;
-            height: 60px;
+        .app-top {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .app-icon {
+            width: 58px;
+            height: 58px;
+            flex-shrink: 0;
+            border-radius: 15px;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 16px;
-            background: #0c4a6e;
-            font-size: 28px;
-            margin-bottom: 15px;
+            font-size: 27px;
+            font-weight: 900;
+            background: linear-gradient(135deg, #182337, #0d1420);
+            border: 1px solid var(--border);
         }
 
-        .card h3 {
-            font-size: 20px;
-            margin-bottom: 8px;
+        .app-name {
+            font-size: 17px;
+            font-weight: 800;
         }
 
-        .description {
-            color: #94a3b8;
-            min-height: 45px;
-            line-height: 1.5;
+        .app-version {
+            margin-top: 5px;
+            color: var(--muted);
+            font-size: 12px;
+        }
+
+        .app-description {
+            color: var(--muted);
+            line-height: 1.55;
+            font-size: 13px;
+            margin: 17px 0;
+            min-height: 40px;
+        }
+
+        .tags {
+            display: flex;
+            gap: 7px;
+            flex-wrap: wrap;
+            margin-bottom: 17px;
         }
 
         .tag {
-            display: inline-block;
-            margin-top: 15px;
-            padding: 5px 9px;
-            background: #1e293b;
-            color: #7dd3fc;
-            border-radius: 7px;
-            font-size: 12px;
+            font-size: 10px;
+            padding: 5px 8px;
+            border-radius: 6px;
+            color: #b9c5d5;
+            background: #0a0f18;
+            border: 1px solid var(--border);
         }
 
         .download {
             display: block;
             text-align: center;
-            margin-top: 18px;
-            padding: 12px;
-            border-radius: 12px;
-            background: linear-gradient(
-                135deg,
-                #0284c7,
-                #2563eb
-            );
-            color: white;
             text-decoration: none;
-            font-weight: bold;
-            transition: 0.2s;
+            color: white;
+            font-size: 13px;
+            font-weight: 800;
+            padding: 12px;
+            border-radius: 11px;
+            background: linear-gradient(135deg, #087ea4, #2563eb);
+            transition: .2s;
         }
 
         .download:hover {
-            transform: scale(1.02);
+            transform: translateY(-1px);
             filter: brightness(1.15);
         }
 
-        .no-results {
-            text-align: center;
-            color: #64748b;
-            padding: 50px;
-            display: none;
+        /* ================= FEATURED ================= */
+
+        .featured {
+            margin-top: 30px;
+            padding: 25px;
+            border-radius: 22px;
+            border: 1px solid var(--border);
+            background:
+                linear-gradient(110deg, rgba(0,229,255,.07), transparent 45%),
+                #0d121c;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 25px;
         }
 
-        footer {
-            margin-top: 70px;
-            padding: 30px;
+        .featured h3 {
+            font-size: 21px;
+            margin-bottom: 7px;
+        }
+
+        .featured p {
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .featured-button {
+            flex-shrink: 0;
+            text-decoration: none;
+            color: #041016;
+            background: var(--cyan);
+            padding: 13px 20px;
+            border-radius: 10px;
+            font-size: 13px;
+            font-weight: 900;
+        }
+
+        /* ================= NO RESULTS ================= */
+
+        .no-results {
+            display: none;
             text-align: center;
-            border-top: 1px solid #1e293b;
-            color: #64748b;
+            padding: 60px 20px;
+            color: var(--muted);
+        }
+
+        .no-results div {
+            font-size: 45px;
+            margin-bottom: 10px;
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 35px 22px;
+            text-align: center;
+            color: var(--muted);
+            font-size: 12px;
+        }
+
+        footer strong {
+            color: white;
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 900px) {
+            .apps {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
         @media (max-width: 600px) {
-            .logo {
-                font-size: 32px;
+            .nav {
+                height: 62px;
             }
 
-            .grid {
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding-top: 60px;
+            }
+
+            .hero h1 {
+                letter-spacing: -2px;
+            }
+
+            .apps {
                 grid-template-columns: 1fr;
+            }
+
+            .featured {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .featured-button {
+                width: 100%;
+                text-align: center;
             }
         }
     </style>
@@ -152,89 +444,144 @@
 
 <body>
 
+<!-- ================= HEADER ================= -->
+
 <header>
+    <div class="nav">
 
-    <div class="logo">
-        SOFAIN DOWNLOAD
+        <div class="logo">
+            SOFAIN<span>.</span>
+        </div>
+
+        <nav class="nav-links">
+            <a href="#apps">Apps</a>
+            <a href="#featured">Featured</a>
+            <a href="#about">About</a>
+        </nav>
+
     </div>
-
-    <div class="subtitle">
-        مركز تحميل البرامج والأدوات
-    </div>
-
 </header>
 
 
-<div class="search-box">
+<!-- ================= HERO ================= -->
 
-    <input
-        type="text"
-        id="search"
-        placeholder="ابحث عن برنامج... مثل Python أو VLC"
-    >
+<section class="hero">
 
-</div>
+    <div class="badge">
+        ⚡ SOFAIN DOWNLOAD V2
+    </div>
 
+    <h1>
+        DOWNLOAD<br>
+        <span>SOFTWARE.</span>
+    </h1>
+
+    <p>
+        Discover popular software and useful tools
+        for Windows, Linux and development.
+    </p>
+
+    <div class="search-box">
+
+        <span class="search-icon">⌕</span>
+
+        <input
+            id="search"
+            type="text"
+            placeholder="Search for an application..."
+            autocomplete="off"
+        >
+
+    </div>
+
+</section>
+
+
+<!-- ================= CATEGORIES ================= -->
 
 <div class="categories">
 
-    <button class="category active" onclick="filterCategory('all', this)">
-        الكل
+    <button class="category active" data-category="all">
+        All
     </button>
 
-    <button class="category" onclick="filterCategory('windows', this)">
-        Windows
+    <button class="category" data-category="windows">
+        🪟 Windows
     </button>
 
-    <button class="category" onclick="filterCategory('python', this)">
-        Python
+    <button class="category" data-category="linux">
+        🐧 Linux
     </button>
 
-    <button class="category" onclick="filterCategory('development', this)">
-        Development
+    <button class="category" data-category="development">
+        💻 Development
     </button>
 
-    <button class="category" onclick="filterCategory('media', this)">
-        Media
+    <button class="category" data-category="media">
+        🎬 Media
     </button>
 
-    <button class="category" onclick="filterCategory('tools', this)">
-        Tools
+    <button class="category" data-category="tools">
+        🛠 Tools
     </button>
 
 </div>
 
 
-<main class="container">
+<!-- ================= MAIN ================= -->
 
-    <h2 class="section-title">
-        البرامج المتوفرة
-    </h2>
+<main id="apps">
 
-    <div class="grid" id="programs">
+    <div class="section-title">
+
+        <h2>Popular Apps</h2>
+
+        <span class="count" id="count">
+            9 applications
+        </span>
+
+    </div>
+
+
+    <div class="apps" id="appGrid">
 
 
         <!-- PYTHON -->
 
-        <div class="card"
-             data-category="python"
-             data-name="python">
+        <article
+            class="app"
+            data-category="development windows linux"
+            data-name="python python programming development"
+        >
 
-            <div class="icon">
-                🐍
+            <div class="app-top">
+
+                <div class="app-icon">
+                    🐍
+                </div>
+
+                <div>
+                    <div class="app-name">
+                        Python
+                    </div>
+
+                    <div class="app-version">
+                        Latest • Programming
+                    </div>
+                </div>
+
             </div>
 
-            <h3>
-                Python
-            </h3>
-
-            <p class="description">
-                لغة البرمجة Python الرسمية.
+            <p class="app-description">
+                Powerful programming language for development,
+                automation, AI and more.
             </p>
 
-            <span class="tag">
-                Python
-            </span>
+            <div class="tags">
+                <span class="tag">Windows</span>
+                <span class="tag">Linux</span>
+                <span class="tag">Developer</span>
+            </div>
 
             <a
                 class="download"
@@ -242,33 +589,48 @@
                 target="_blank"
                 rel="noopener"
             >
-                تحميل Python
+                ⬇ Download
             </a>
 
-        </div>
+        </article>
 
 
         <!-- VS CODE -->
 
-        <div class="card"
-             data-category="development"
-             data-name="visual studio code vscode">
+        <article
+            class="app"
+            data-category="development windows linux"
+            data-name="visual studio code vscode editor programming"
+        >
 
-            <div class="icon">
-                💻
+            <div class="app-top">
+
+                <div class="app-icon">
+                    &lt;/&gt;
+                </div>
+
+                <div>
+                    <div class="app-name">
+                        Visual Studio Code
+                    </div>
+
+                    <div class="app-version">
+                        Latest • Code Editor
+                    </div>
+                </div>
+
             </div>
 
-            <h3>
-                Visual Studio Code
-            </h3>
-
-            <p class="description">
-                محرر أكواد احترافي للمبرمجين.
+            <p class="app-description">
+                Modern code editor for programming,
+                web development and extensions.
             </p>
 
-            <span class="tag">
-                Development
-            </span>
+            <div class="tags">
+                <span class="tag">Windows</span>
+                <span class="tag">Linux</span>
+                <span class="tag">Developer</span>
+            </div>
 
             <a
                 class="download"
@@ -276,33 +638,48 @@
                 target="_blank"
                 rel="noopener"
             >
-                تحميل VS Code
+                ⬇ Download
             </a>
 
-        </div>
+        </article>
 
 
         <!-- GIT -->
 
-        <div class="card"
-             data-category="development"
-             data-name="git">
+        <article
+            class="app"
+            data-category="development windows linux"
+            data-name="git github version control"
+        >
 
-            <div class="icon">
-                🔧
+            <div class="app-top">
+
+                <div class="app-icon">
+                    Git
+                </div>
+
+                <div>
+                    <div class="app-name">
+                        Git
+                    </div>
+
+                    <div class="app-version">
+                        Latest • Developer Tool
+                    </div>
+                </div>
+
             </div>
 
-            <h3>
-                Git
-            </h3>
-
-            <p class="description">
-                نظام إدارة الإصدارات للمشاريع البرمجية.
+            <p class="app-description">
+                Distributed version control system
+                for developers and projects.
             </p>
 
-            <span class="tag">
-                Development
-            </span>
+            <div class="tags">
+                <span class="tag">Windows</span>
+                <span class="tag">Linux</span>
+                <span class="tag">Git</span>
+            </div>
 
             <a
                 class="download"
@@ -310,33 +687,48 @@
                 target="_blank"
                 rel="noopener"
             >
-                تحميل Git
+                ⬇ Download
             </a>
 
-        </div>
+        </article>
 
 
         <!-- VLC -->
 
-        <div class="card"
-             data-category="media"
-             data-name="vlc media player">
+        <article
+            class="app"
+            data-category="windows linux media"
+            data-name="vlc media player video audio"
+        >
 
-            <div class="icon">
-                🎬
+            <div class="app-top">
+
+                <div class="app-icon">
+                    ▶
+                </div>
+
+                <div>
+                    <div class="app-name">
+                        VLC Media Player
+                    </div>
+
+                    <div class="app-version">
+                        Latest • Media
+                    </div>
+                </div>
+
             </div>
 
-            <h3>
-                VLC Media Player
-            </h3>
-
-            <p class="description">
-                مشغل فيديو وصوت مجاني ومفتوح المصدر.
+            <p class="app-description">
+                Free multimedia player supporting
+                many video and audio formats.
             </p>
 
-            <span class="tag">
-                Media
-            </span>
+            <div class="tags">
+                <span class="tag">Windows</span>
+                <span class="tag">Linux</span>
+                <span class="tag">Media</span>
+            </div>
 
             <a
                 class="download"
@@ -344,33 +736,47 @@
                 target="_blank"
                 rel="noopener"
             >
-                تحميل VLC
+                ⬇ Download
             </a>
 
-        </div>
+        </article>
 
 
         <!-- 7ZIP -->
 
-        <div class="card"
-             data-category="tools"
-             data-name="7zip 7 zip">
+        <article
+            class="app"
+            data-category="windows tools"
+            data-name="7zip compression archive zip"
+        >
 
-            <div class="icon">
-                📦
+            <div class="app-top">
+
+                <div class="app-icon">
+                    7z
+                </div>
+
+                <div>
+                    <div class="app-name">
+                        7-Zip
+                    </div>
+
+                    <div class="app-version">
+                        Latest • Utility
+                    </div>
+                </div>
+
             </div>
 
-            <h3>
-                7-Zip
-            </h3>
-
-            <p class="description">
-                أداة ضغط وفك ضغط الملفات.
+            <p class="app-description">
+                Lightweight file archiver with
+                support for many archive formats.
             </p>
 
-            <span class="tag">
-                Tools
-            </span>
+            <div class="tags">
+                <span class="tag">Windows</span>
+                <span class="tag">Utility</span>
+            </div>
 
             <a
                 class="download"
@@ -378,33 +784,47 @@
                 target="_blank"
                 rel="noopener"
             >
-                تحميل 7-Zip
+                ⬇ Download
             </a>
 
-        </div>
+        </article>
 
 
         <!-- FIREFOX -->
 
-        <div class="card"
-             data-category="windows"
-             data-name="firefox mozilla browser">
+        <article
+            class="app"
+            data-category="windows linux tools"
+            data-name="firefox browser internet web"
+        >
 
-            <div class="icon">
-                🦊
+            <div class="app-top">
+
+                <div class="app-icon">
+                    🦊
+                </div>
+
+                <div>
+                    <div class="app-name">
+                        Firefox
+                    </div>
+
+                    <div class="app-version">
+                        Latest • Browser
+                    </div>
+                </div>
+
             </div>
 
-            <h3>
-                Firefox
-            </h3>
-
-            <p class="description">
-                متصفح Firefox الرسمي.
+            <p class="app-description">
+                Privacy-focused web browser from Mozilla.
             </p>
 
-            <span class="tag">
-                Windows
-            </span>
+            <div class="tags">
+                <span class="tag">Windows</span>
+                <span class="tag">Linux</span>
+                <span class="tag">Browser</span>
+            </div>
 
             <a
                 class="download"
@@ -412,33 +832,48 @@
                 target="_blank"
                 rel="noopener"
             >
-                تحميل Firefox
+                ⬇ Download
             </a>
 
-        </div>
+        </article>
 
 
         <!-- LIBREOFFICE -->
 
-        <div class="card"
-             data-category="windows"
-             data-name="libreoffice office word excel">
+        <article
+            class="app"
+            data-category="windows linux tools"
+            data-name="libreoffice office writer excel powerpoint"
+        >
 
-            <div class="icon">
-                📝
+            <div class="app-top">
+
+                <div class="app-icon">
+                    📄
+                </div>
+
+                <div>
+                    <div class="app-name">
+                        LibreOffice
+                    </div>
+
+                    <div class="app-version">
+                        Latest • Office
+                    </div>
+                </div>
+
             </div>
 
-            <h3>
-                LibreOffice
-            </h3>
-
-            <p class="description">
-                حزمة مكتبية تحتوي على Writer و Calc وغيرها.
+            <p class="app-description">
+                Free office suite with Writer,
+                Calc, Impress and more.
             </p>
 
-            <span class="tag">
-                Office
-            </span>
+            <div class="tags">
+                <span class="tag">Windows</span>
+                <span class="tag">Linux</span>
+                <span class="tag">Office</span>
+            </div>
 
             <a
                 class="download"
@@ -446,101 +881,48 @@
                 target="_blank"
                 rel="noopener"
             >
-                تحميل LibreOffice
+                ⬇ Download
             </a>
 
-        </div>
-
-
-        <!-- AUDACITY -->
-
-        <div class="card"
-             data-category="media"
-             data-name="audacity audio">
-
-            <div class="icon">
-                🎙️
-            </div>
-
-            <h3>
-                Audacity
-            </h3>
-
-            <p class="description">
-                تسجيل وتعديل الصوت.
-            </p>
-
-            <span class="tag">
-                Media
-            </span>
-
-            <a
-                class="download"
-                href="https://www.audacityteam.org/download/"
-                target="_blank"
-                rel="noopener"
-            >
-                تحميل Audacity
-            </a>
-
-        </div>
-
-
-        <!-- OFFICE -->
-
-        <div class="card"
-             data-category="windows"
-             data-name="microsoft office word excel powerpoint">
-
-            <div class="icon">
-                📊
-            </div>
-
-            <h3>
-                Microsoft 365
-            </h3>
-
-            <p class="description">
-                Word و Excel و PowerPoint وغيرها من تطبيقات Microsoft.
-            </p>
-
-            <span class="tag">
-                Office
-            </span>
-
-            <a
-                class="download"
-                href="https://www.microsoft.com/microsoft-365"
-                target="_blank"
-                rel="noopener"
-            >
-                Microsoft 365
-            </a>
-
-        </div>
+        </article>
 
 
         <!-- POWERSHELL -->
 
-        <div class="card"
-             data-category="tools"
-             data-name="powershell">
+        <article
+            class="app"
+            data-category="windows tools development"
+            data-name="powershell terminal microsoft shell"
+        >
 
-            <div class="icon">
-                ⚡
+            <div class="app-top">
+
+                <div class="app-icon">
+                    PS
+                </div>
+
+                <div>
+                    <div class="app-name">
+                        PowerShell
+                    </div>
+
+                    <div class="app-version">
+                        Latest • Shell
+                    </div>
+                </div>
+
             </div>
 
-            <h3>
-                PowerShell
-            </h3>
-
-            <p class="description">
-                shell وأداة أتمتة من Microsoft.
+            <p class="app-description">
+                Cross-platform command shell and
+                scripting environment.
             </p>
 
-            <span class="tag">
-                Tools
-            </span>
+            <div class="tags">
+                <span class="tag">Windows</span>
+                <span class="tag">Linux</span>
+                <span class="tag">Developer</span>
+            </div>
 
             <a
                 class="download"
@@ -548,114 +930,221 @@
                 target="_blank"
                 rel="noopener"
             >
-                تحميل PowerShell
+                ⬇ Download
             </a>
+
+        </article>
+
+
+        <!-- OFFICE -->
+
+        <article
+            class="app"
+            data-category="windows tools"
+            data-name="microsoft office microsoft 365 word excel powerpoint"
+        >
+
+            <div class="app-top">
+
+                <div class="app-icon">
+                    M
+                </div>
+
+                <div>
+                    <div class="app-name">
+                        Microsoft 365
+                    </div>
+
+                    <div class="app-version">
+                        Official • Microsoft
+                    </div>
+                </div>
+
+            </div>
+
+            <p class="app-description">
+                Official Microsoft 365 page for
+                Word, Excel, PowerPoint and more.
+            </p>
+
+            <div class="tags">
+                <span class="tag">Windows</span>
+                <span class="tag">Office</span>
+                <span class="tag">Microsoft</span>
+            </div>
+
+            <a
+                class="download"
+                href="https://www.microsoft.com/microsoft-365/download-office"
+                target="_blank"
+                rel="noopener"
+            >
+                ⬇ Download
+            </a>
+
+        </article>
+
+    </div>
+
+
+    <!-- NO RESULTS -->
+
+    <div class="no-results" id="noResults">
+
+        <div>🔎</div>
+
+        <h3>No application found</h3>
+
+        <p>
+            Try another search or category.
+        </p>
+
+    </div>
+
+
+    <!-- FEATURED -->
+
+    <section class="featured" id="featured">
+
+        <div>
+
+            <h3>
+                🚀 More software coming soon
+            </h3>
+
+            <p>
+                SOFAIN DOWNLOAD will continue to grow.
+            </p>
 
         </div>
 
+        <a
+            class="featured-button"
+            href="#apps"
+        >
+            Browse Apps
+        </a>
 
-    </div>
-
-
-    <div class="no-results" id="noResults">
-        لا توجد نتائج مطابقة 🔎
-    </div>
+    </section>
 
 </main>
 
 
-<footer>
+<!-- ================= FOOTER ================= -->
 
-    © 2026 SOFAIN DOWNLOAD
+<footer id="about">
+
+    <strong>SOFAIN DOWNLOAD</strong>
 
     <br><br>
 
-    جميع البرامج يتم توجيهها إلى مصادرها الرسمية.
+    Software links are provided to official sources.
+
+    <br><br>
+
+    © 2026 SOFAIN
 
 </footer>
 
 
+<!-- ================= JAVASCRIPT ================= -->
+
 <script>
 
-let currentCategory = "all";
+    const searchInput = document.getElementById("search");
+    const apps = Array.from(document.querySelectorAll(".app"));
+    const categories = document.querySelectorAll(".category");
+
+    const count = document.getElementById("count");
+    const noResults = document.getElementById("noResults");
+
+    let currentCategory = "all";
 
 
-function filterCategory(category, button) {
+    function filterApps() {
 
-    currentCategory = category;
+        const search =
+            searchInput.value
+                .toLowerCase()
+                .trim();
 
-    document
-        .querySelectorAll(".category")
-        .forEach(btn => {
-            btn.classList.remove("active");
+        let visible = 0;
+
+
+        apps.forEach(app => {
+
+            const name =
+                app.dataset.name.toLowerCase();
+
+            const category =
+                app.dataset.category.toLowerCase();
+
+            const matchesSearch =
+                name.includes(search);
+
+            const matchesCategory =
+                currentCategory === "all" ||
+                category.includes(currentCategory);
+
+
+            if (matchesSearch && matchesCategory) {
+
+                app.style.display = "";
+
+                visible++;
+
+            } else {
+
+                app.style.display = "none";
+
+            }
+
         });
 
-    button.classList.add("active");
 
-    applyFilters();
-}
-
-
-document
-    .getElementById("search")
-    .addEventListener("input", applyFilters);
+        count.textContent =
+            visible +
+            (visible === 1
+                ? " application"
+                : " applications");
 
 
-function applyFilters() {
+        noResults.style.display =
+            visible === 0
+                ? "block"
+                : "none";
 
-    const search =
-        document
-        .getElementById("search")
-        .value
-        .toLowerCase()
-        .trim();
+    }
 
-    const cards =
-        document.querySelectorAll(".card");
 
-    let visible = 0;
+    searchInput.addEventListener(
+        "input",
+        filterApps
+    );
 
-    cards.forEach(card => {
 
-        const name =
-            card.dataset.name
-            .toLowerCase();
+    categories.forEach(button => {
 
-        const category =
-            card.dataset.category;
+        button.addEventListener(
+            "click",
+            () => {
 
-        const matchesSearch =
-            name.includes(search);
+                categories.forEach(
+                    btn =>
+                        btn.classList.remove("active")
+                );
 
-        const matchesCategory =
-            currentCategory === "all" ||
-            category === currentCategory;
+                button.classList.add("active");
 
-        if (
-            matchesSearch &&
-            matchesCategory
-        ) {
+                currentCategory =
+                    button.dataset.category;
 
-            card.style.display = "";
+                filterApps();
 
-            visible++;
-
-        } else {
-
-            card.style.display = "none";
-
-        }
+            }
+        );
 
     });
-
-
-    document
-        .getElementById("noResults")
-        .style.display =
-        visible === 0
-        ? "block"
-        : "none";
-}
 
 </script>
 
