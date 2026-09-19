@@ -1,71 +1,376 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
-
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta charset="UTF-8">
+    <title>SOFAIN — Official Download Center</title>
 
-<title>SOFAIN Download Center</title>
+    <meta name="description" content="Official SOFAIN Download Center">
+    <meta name="theme-color" content="#08080d">
 
-<link rel="stylesheet" href="style.css">
-
+    <link rel="stylesheet" href="style.css">
 </head>
-
 
 <body>
 
+    <!-- Background -->
+    <div class="background">
+        <div class="glow glow-1"></div>
+        <div class="glow glow-2"></div>
+        <div class="grid"></div>
+    </div>
 
-<div class="box">
+    <!-- NAVBAR -->
+    <header class="navbar">
 
+        <a href="#" class="brand">
+            <div class="brand-logo">
+                <img src="assets/sofain.png" alt="SOFAIN">
+            </div>
 
-<img src="assets/logo.png" class="logo">
+            <span>SOFAIN</span>
+        </a>
 
+        <nav>
+            <a href="#downloads">Downloads</a>
+            <a href="#features">Features</a>
+        </nav>
 
-<h1>SOFAIN</h1>
+        <button class="menu-btn" id="menuBtn">
+            ☰
+        </button>
 
-
-<p>
-Official Download Center
-</p>
-
-
-
-<div id="downloads">
-تحميلات اليوم: 0
-</div>
-
-
-
-<a href="files/windows.exe" download class="btn blue">
-🖥️ Windows Download
-</a>
-
-
-
-<a href="files/android.apk" download class="btn green">
-📱 Android Download
-</a>
+    </header>
 
 
-
-<a href="https://discord.com" class="btn purple">
-💬 Discord
-</a>
-
-
-
-<p class="copy">
-© 2026 SOFAIN
-</p>
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#downloads">Downloads</a>
+        <a href="#features">Features</a>
+    </div>
 
 
-</div>
+    <!-- HERO -->
+    <main>
+
+        <section class="hero">
+
+            <div class="status">
+                <span class="status-dot"></span>
+                OFFICIAL SOFAIN WEBSITE
+            </div>
+
+            <h1>
+                Download
+                <span>SOFAIN</span>
+            </h1>
+
+            <p class="hero-text">
+                Get the latest SOFAIN files for your device.
+                Fast, simple and available for multiple platforms.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#downloads" class="primary-btn">
+                    <span>↓</span>
+                    View Downloads
+                </a>
+
+                <a href="#features" class="secondary-btn">
+                    Explore
+                </a>
+
+            </div>
+
+        </section>
 
 
+        <!-- DOWNLOADS -->
+        <section class="downloads" id="downloads">
 
-<script src="script.js"></script>
+            <div class="section-heading">
 
+                <div>
+                    <div class="mini-label">
+                        DOWNLOAD CENTER
+                    </div>
+
+                    <h2>
+                        Choose your platform
+                    </h2>
+                </div>
+
+                <p>
+                    Select the version compatible with your device.
+                </p>
+
+            </div>
+
+
+            <div class="download-grid">
+
+                <!-- WINDOWS -->
+                <article class="download-card">
+
+                    <div class="card-top">
+
+                        <div class="platform-icon windows">
+                            ⊞
+                        </div>
+
+                        <div class="platform-info">
+
+                            <span class="platform-label">
+                                DESKTOP
+                            </span>
+
+                            <h3>Windows</h3>
+
+                        </div>
+
+                    </div>
+
+                    <p class="card-description">
+                        Download SOFAIN for Windows computers.
+                        Designed for desktop use.
+                    </p>
+
+                    <div class="card-details">
+
+                        <div>
+                            <span>VERSION</span>
+                            <strong>V1.0</strong>
+                        </div>
+
+                        <div>
+                            <span>FORMAT</span>
+                            <strong>EXE</strong>
+                        </div>
+
+                        <div>
+                            <span>PLATFORM</span>
+                            <strong>Windows</strong>
+                        </div>
+
+                    </div>
+
+                    <a
+                        class="download-btn"
+                        href="files/SOFAIN.exe"
+                        download
+                    >
+                        <span>↓</span>
+                        Download for Windows
+                    </a>
+
+                </article>
+
+
+                <!-- ANDROID -->
+                <article class="download-card android-card">
+
+                    <div class="card-top">
+
+                        <div class="platform-icon android">
+                            ◉
+                        </div>
+
+                        <div class="platform-info">
+
+                            <span class="platform-label">
+                                MOBILE
+                            </span>
+
+                            <h3>Android</h3>
+
+                        </div>
+
+                    </div>
+
+                    <p class="card-description">
+                        Download the SOFAIN Android application
+                        directly to your mobile device.
+                    </p>
+
+                    <div class="card-details">
+
+                        <div>
+                            <span>VERSION</span>
+                            <strong>V1.0</strong>
+                        </div>
+
+                        <div>
+                            <span>FORMAT</span>
+                            <strong>APK</strong>
+                        </div>
+
+                        <div>
+                            <span>PLATFORM</span>
+                            <strong>Android</strong>
+                        </div>
+
+                    </div>
+
+                    <a
+                        class="download-btn"
+                        href="files/SOFAIN.apk"
+                        download
+                    >
+                        <span>↓</span>
+                        Download for Android
+                    </a>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- FEATURES -->
+        <section class="features" id="features">
+
+            <div class="section-heading centered">
+
+                <div>
+                    <div class="mini-label">
+                        SOFAIN
+                    </div>
+
+                    <h2>
+                        Simple. Fast. Clean.
+                    </h2>
+                </div>
+
+            </div>
+
+
+            <div class="feature-grid">
+
+                <div class="feature-card">
+
+                    <div class="feature-number">
+                        01
+                    </div>
+
+                    <div class="feature-icon">
+                        ⚡
+                    </div>
+
+                    <h3>Fast Downloads</h3>
+
+                    <p>
+                        Download the files directly from the official
+                        SOFAIN website.
+                    </p>
+
+                </div>
+
+
+                <div class="feature-card">
+
+                    <div class="feature-number">
+                        02
+                    </div>
+
+                    <div class="feature-icon">
+                        ◈
+                    </div>
+
+                    <h3>Multi Platform</h3>
+
+                    <p>
+                        Access the download center from computers
+                        and mobile devices.
+                    </p>
+
+                </div>
+
+
+                <div class="feature-card">
+
+                    <div class="feature-number">
+                        03
+                    </div>
+
+                    <div class="feature-icon">
+                        ✓
+                    </div>
+
+                    <h3>Easy To Use</h3>
+
+                    <p>
+                        Choose your platform and download with
+                        a single click.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- FILES -->
+        <section class="file-info">
+
+            <div class="file-box">
+
+                <div class="file-icon">
+                    📦
+                </div>
+
+                <div>
+
+                    <span>
+                        OFFICIAL FILES
+                    </span>
+
+                    <h3>
+                        Always use the official download page.
+                    </h3>
+
+                    <p>
+                        Keep your SOFAIN files organized and easy
+                        to access from any device.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <div class="footer-brand">
+            SOFAIN<span>.</span>
+        </div>
+
+        <p>
+            Official Download Center
+        </p>
+
+        <div class="copyright">
+            © 2026 SOFAIN. All rights reserved.
+        </div>
+
+    </footer>
+
+
+    <!-- SCROLL TOP -->
+    <button class="top-btn" id="topBtn">
+        ↑
+    </button>
+
+
+    <script src="script.js"></script>
 
 </body>
-
 </html>
