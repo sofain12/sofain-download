@@ -1,376 +1,663 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+#334155;
+            background: #0f172a;
+            color: white;
+            font-size: 16px;
+            outline: none;
+        }
 
-    <title>SOFAIN — Official Download Center</title>
+        #search:focus {
+            border-color: #38bdf8;
+            box-shadow: 0 0 15px #0ea5e933;
+        }
 
-    <meta name="description" content="Official SOFAIN Download Center">
-    <meta name="theme-color" content="#08080d">
+        .categories {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            padding: 10px 20px 30px;
+        }
 
-    <link rel="stylesheet" href="style.css">
+        .category {
+            border: 1px solid #334155;
+            background: #0f172a;
+            color: #cbd5e1;
+            padding: 10px 18px;
+            border-radius: 999px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .category:hover,
+        .category.active {
+            background: #0284c7;
+            border-color: #38bdf8;
+            color: white;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .section-title {
+            margin: 20px 0;
+            font-size: 24px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: rgba(15, 23, 42, 0.9);
+            border: 1px solid #1e293b;
+            border-radius: 20px;
+            padding: 22px;
+            transition: 0.25s;
+            backdrop-filter: blur(10px);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #38bdf8;
+            box-shadow: 0 10px 35px #00000055;
+        }
+
+        .icon {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 16px;
+            background: #0c4a6e;
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+
+        .description {
+            color: #94a3b8;
+            min-height: 45px;
+            line-height: 1.5;
+        }
+
+        .tag {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 5px 9px;
+            background: #1e293b;
+            color: #7dd3fc;
+            border-radius: 7px;
+            font-size: 12px;
+        }
+
+        .download {
+            display: block;
+            text-align: center;
+            margin-top: 18px;
+            padding: 12px;
+            border-radius: 12px;
+            background: linear-gradient(
+                135deg,
+                #0284c7,
+                #2563eb
+            );
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+
+        .download:hover {
+            transform: scale(1.02);
+            filter: brightness(1.15);
+        }
+
+        .no-results {
+            text-align: center;
+            color: #64748b;
+            padding: 50px;
+            display: none;
+        }
+
+        footer {
+            margin-top: 70px;
+            padding: 30px;
+            text-align: center;
+            border-top: 1px solid #1e293b;
+            color: #64748b;
+        }
+
+        @media (max-width: 600px) {
+            .logo {
+                font-size: 32px;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-    <!-- Background -->
-    <div class="background">
-        <div class="glow glow-1"></div>
-        <div class="glow glow-2"></div>
-        <div class="grid"></div>
+<header>
+
+    <div class="logo">
+        SOFAIN DOWNLOAD
     </div>
 
-    <!-- NAVBAR -->
-    <header class="navbar">
-
-        <a href="#" class="brand">
-            <div class="brand-logo">
-                <img src="assets/sofain.png" alt="SOFAIN">
-            </div>
-
-            <span>SOFAIN</span>
-        </a>
-
-        <nav>
-            <a href="#downloads">Downloads</a>
-            <a href="#features">Features</a>
-        </nav>
-
-        <button class="menu-btn" id="menuBtn">
-            ☰
-        </button>
-
-    </header>
-
-
-    <!-- MOBILE MENU -->
-    <div class="mobile-menu" id="mobileMenu">
-        <a href="#downloads">Downloads</a>
-        <a href="#features">Features</a>
+    <div class="subtitle">
+        مركز تحميل البرامج والأدوات
     </div>
 
+</header>
 
-    <!-- HERO -->
-    <main>
 
-        <section class="hero">
+<div class="search-box">
 
-            <div class="status">
-                <span class="status-dot"></span>
-                OFFICIAL SOFAIN WEBSITE
-            </div>
+    <input
+        type="text"
+        id="search"
+        placeholder="ابحث عن برنامج... مثل Python أو VLC"
+    >
 
-            <h1>
-                Download
-                <span>SOFAIN</span>
-            </h1>
+</div>
 
-            <p class="hero-text">
-                Get the latest SOFAIN files for your device.
-                Fast, simple and available for multiple platforms.
-            </p>
 
-            <div class="hero-buttons">
+<div class="categories">
 
-                <a href="#downloads" class="primary-btn">
-                    <span>↓</span>
-                    View Downloads
-                </a>
-
-                <a href="#features" class="secondary-btn">
-                    Explore
-                </a>
-
-            </div>
-
-        </section>
-
-
-        <!-- DOWNLOADS -->
-        <section class="downloads" id="downloads">
-
-            <div class="section-heading">
-
-                <div>
-                    <div class="mini-label">
-                        DOWNLOAD CENTER
-                    </div>
-
-                    <h2>
-                        Choose your platform
-                    </h2>
-                </div>
-
-                <p>
-                    Select the version compatible with your device.
-                </p>
-
-            </div>
-
-
-            <div class="download-grid">
-
-                <!-- WINDOWS -->
-                <article class="download-card">
-
-                    <div class="card-top">
-
-                        <div class="platform-icon windows">
-                            ⊞
-                        </div>
-
-                        <div class="platform-info">
-
-                            <span class="platform-label">
-                                DESKTOP
-                            </span>
-
-                            <h3>Windows</h3>
-
-                        </div>
-
-                    </div>
-
-                    <p class="card-description">
-                        Download SOFAIN for Windows computers.
-                        Designed for desktop use.
-                    </p>
-
-                    <div class="card-details">
-
-                        <div>
-                            <span>VERSION</span>
-                            <strong>V1.0</strong>
-                        </div>
-
-                        <div>
-                            <span>FORMAT</span>
-                            <strong>EXE</strong>
-                        </div>
-
-                        <div>
-                            <span>PLATFORM</span>
-                            <strong>Windows</strong>
-                        </div>
-
-                    </div>
-
-                    <a
-                        class="download-btn"
-                        href="files/SOFAIN.exe"
-                        download
-                    >
-                        <span>↓</span>
-                        Download for Windows
-                    </a>
-
-                </article>
-
-
-                <!-- ANDROID -->
-                <article class="download-card android-card">
-
-                    <div class="card-top">
-
-                        <div class="platform-icon android">
-                            ◉
-                        </div>
-
-                        <div class="platform-info">
-
-                            <span class="platform-label">
-                                MOBILE
-                            </span>
-
-                            <h3>Android</h3>
-
-                        </div>
-
-                    </div>
-
-                    <p class="card-description">
-                        Download the SOFAIN Android application
-                        directly to your mobile device.
-                    </p>
-
-                    <div class="card-details">
-
-                        <div>
-                            <span>VERSION</span>
-                            <strong>V1.0</strong>
-                        </div>
-
-                        <div>
-                            <span>FORMAT</span>
-                            <strong>APK</strong>
-                        </div>
-
-                        <div>
-                            <span>PLATFORM</span>
-                            <strong>Android</strong>
-                        </div>
-
-                    </div>
-
-                    <a
-                        class="download-btn"
-                        href="files/SOFAIN.apk"
-                        download
-                    >
-                        <span>↓</span>
-                        Download for Android
-                    </a>
-
-                </article>
-
-            </div>
-
-        </section>
-
-
-        <!-- FEATURES -->
-        <section class="features" id="features">
-
-            <div class="section-heading centered">
-
-                <div>
-                    <div class="mini-label">
-                        SOFAIN
-                    </div>
-
-                    <h2>
-                        Simple. Fast. Clean.
-                    </h2>
-                </div>
-
-            </div>
-
-
-            <div class="feature-grid">
-
-                <div class="feature-card">
-
-                    <div class="feature-number">
-                        01
-                    </div>
-
-                    <div class="feature-icon">
-                        ⚡
-                    </div>
-
-                    <h3>Fast Downloads</h3>
-
-                    <p>
-                        Download the files directly from the official
-                        SOFAIN website.
-                    </p>
-
-                </div>
-
-
-                <div class="feature-card">
-
-                    <div class="feature-number">
-                        02
-                    </div>
-
-                    <div class="feature-icon">
-                        ◈
-                    </div>
-
-                    <h3>Multi Platform</h3>
-
-                    <p>
-                        Access the download center from computers
-                        and mobile devices.
-                    </p>
-
-                </div>
-
-
-                <div class="feature-card">
-
-                    <div class="feature-number">
-                        03
-                    </div>
-
-                    <div class="feature-icon">
-                        ✓
-                    </div>
-
-                    <h3>Easy To Use</h3>
-
-                    <p>
-                        Choose your platform and download with
-                        a single click.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- FILES -->
-        <section class="file-info">
-
-            <div class="file-box">
-
-                <div class="file-icon">
-                    📦
-                </div>
-
-                <div>
-
-                    <span>
-                        OFFICIAL FILES
-                    </span>
-
-                    <h3>
-                        Always use the official download page.
-                    </h3>
-
-                    <p>
-                        Keep your SOFAIN files organized and easy
-                        to access from any device.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </section>
-
-    </main>
-
-
-    <!-- FOOTER -->
-    <footer>
-
-        <div class="footer-brand">
-            SOFAIN<span>.</span>
-        </div>
-
-        <p>
-            Official Download Center
-        </p>
-
-        <div class="copyright">
-            © 2026 SOFAIN. All rights reserved.
-        </div>
-
-    </footer>
-
-
-    <!-- SCROLL TOP -->
-    <button class="top-btn" id="topBtn">
-        ↑
+    <button class="category active" onclick="filterCategory('all', this)">
+        الكل
     </button>
 
+    <button class="category" onclick="filterCategory('windows', this)">
+        Windows
+    </button>
 
-    <script src="script.js"></script>
+    <button class="category" onclick="filterCategory('python', this)">
+        Python
+    </button>
+
+    <button class="category" onclick="filterCategory('development', this)">
+        Development
+    </button>
+
+    <button class="category" onclick="filterCategory('media', this)">
+        Media
+    </button>
+
+    <button class="category" onclick="filterCategory('tools', this)">
+        Tools
+    </button>
+
+</div>
+
+
+<main class="container">
+
+    <h2 class="section-title">
+        البرامج المتوفرة
+    </h2>
+
+    <div class="grid" id="programs">
+
+
+        <!-- PYTHON -->
+
+        <div class="card"
+             data-category="python"
+             data-name="python">
+
+            <div class="icon">
+                🐍
+            </div>
+
+            <h3>
+                Python
+            </h3>
+
+            <p class="description">
+                لغة البرمجة Python الرسمية.
+            </p>
+
+            <span class="tag">
+                Python
+            </span>
+
+            <a
+                class="download"
+                href="https://www.python.org/downloads/"
+                target="_blank"
+                rel="noopener"
+            >
+                تحميل Python
+            </a>
+
+        </div>
+
+
+        <!-- VS CODE -->
+
+        <div class="card"
+             data-category="development"
+             data-name="visual studio code vscode">
+
+            <div class="icon">
+                💻
+            </div>
+
+            <h3>
+                Visual Studio Code
+            </h3>
+
+            <p class="description">
+                محرر أكواد احترافي للمبرمجين.
+            </p>
+
+            <span class="tag">
+                Development
+            </span>
+
+            <a
+                class="download"
+                href="https://code.visualstudio.com/download"
+                target="_blank"
+                rel="noopener"
+            >
+                تحميل VS Code
+            </a>
+
+        </div>
+
+
+        <!-- GIT -->
+
+        <div class="card"
+             data-category="development"
+             data-name="git">
+
+            <div class="icon">
+                🔧
+            </div>
+
+            <h3>
+                Git
+            </h3>
+
+            <p class="description">
+                نظام إدارة الإصدارات للمشاريع البرمجية.
+            </p>
+
+            <span class="tag">
+                Development
+            </span>
+
+            <a
+                class="download"
+                href="https://git-scm.com/downloads"
+                target="_blank"
+                rel="noopener"
+            >
+                تحميل Git
+            </a>
+
+        </div>
+
+
+        <!-- VLC -->
+
+        <div class="card"
+             data-category="media"
+             data-name="vlc media player">
+
+            <div class="icon">
+                🎬
+            </div>
+
+            <h3>
+                VLC Media Player
+            </h3>
+
+            <p class="description">
+                مشغل فيديو وصوت مجاني ومفتوح المصدر.
+            </p>
+
+            <span class="tag">
+                Media
+            </span>
+
+            <a
+                class="download"
+                href="https://www.videolan.org/vlc/"
+                target="_blank"
+                rel="noopener"
+            >
+                تحميل VLC
+            </a>
+
+        </div>
+
+
+        <!-- 7ZIP -->
+
+        <div class="card"
+             data-category="tools"
+             data-name="7zip 7 zip">
+
+            <div class="icon">
+                📦
+            </div>
+
+            <h3>
+                7-Zip
+            </h3>
+
+            <p class="description">
+                أداة ضغط وفك ضغط الملفات.
+            </p>
+
+            <span class="tag">
+                Tools
+            </span>
+
+            <a
+                class="download"
+                href="https://www.7-zip.org/download.html"
+                target="_blank"
+                rel="noopener"
+            >
+                تحميل 7-Zip
+            </a>
+
+        </div>
+
+
+        <!-- FIREFOX -->
+
+        <div class="card"
+             data-category="windows"
+             data-name="firefox mozilla browser">
+
+            <div class="icon">
+                🦊
+            </div>
+
+            <h3>
+                Firefox
+            </h3>
+
+            <p class="description">
+                متصفح Firefox الرسمي.
+            </p>
+
+            <span class="tag">
+                Windows
+            </span>
+
+            <a
+                class="download"
+                href="https://www.mozilla.org/firefox/new/"
+                target="_blank"
+                rel="noopener"
+            >
+                تحميل Firefox
+            </a>
+
+        </div>
+
+
+        <!-- LIBREOFFICE -->
+
+        <div class="card"
+             data-category="windows"
+             data-name="libreoffice office word excel">
+
+            <div class="icon">
+                📝
+            </div>
+
+            <h3>
+                LibreOffice
+            </h3>
+
+            <p class="description">
+                حزمة مكتبية تحتوي على Writer و Calc وغيرها.
+            </p>
+
+            <span class="tag">
+                Office
+            </span>
+
+            <a
+                class="download"
+                href="https://www.libreoffice.org/download/download-libreoffice/"
+                target="_blank"
+                rel="noopener"
+            >
+                تحميل LibreOffice
+            </a>
+
+        </div>
+
+
+        <!-- AUDACITY -->
+
+        <div class="card"
+             data-category="media"
+             data-name="audacity audio">
+
+            <div class="icon">
+                🎙️
+            </div>
+
+            <h3>
+                Audacity
+            </h3>
+
+            <p class="description">
+                تسجيل وتعديل الصوت.
+            </p>
+
+            <span class="tag">
+                Media
+            </span>
+
+            <a
+                class="download"
+                href="https://www.audacityteam.org/download/"
+                target="_blank"
+                rel="noopener"
+            >
+                تحميل Audacity
+            </a>
+
+        </div>
+
+
+        <!-- OFFICE -->
+
+        <div class="card"
+             data-category="windows"
+             data-name="microsoft office word excel powerpoint">
+
+            <div class="icon">
+                📊
+            </div>
+
+            <h3>
+                Microsoft 365
+            </h3>
+
+            <p class="description">
+                Word و Excel و PowerPoint وغيرها من تطبيقات Microsoft.
+            </p>
+
+            <span class="tag">
+                Office
+            </span>
+
+            <a
+                class="download"
+                href="https://www.microsoft.com/microsoft-365"
+                target="_blank"
+                rel="noopener"
+            >
+                Microsoft 365
+            </a>
+
+        </div>
+
+
+        <!-- POWERSHELL -->
+
+        <div class="card"
+             data-category="tools"
+             data-name="powershell">
+
+            <div class="icon">
+                ⚡
+            </div>
+
+            <h3>
+                PowerShell
+            </h3>
+
+            <p class="description">
+                shell وأداة أتمتة من Microsoft.
+            </p>
+
+            <span class="tag">
+                Tools
+            </span>
+
+            <a
+                class="download"
+                href="https://github.com/PowerShell/PowerShell/releases"
+                target="_blank"
+                rel="noopener"
+            >
+                تحميل PowerShell
+            </a>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="no-results" id="noResults">
+        لا توجد نتائج مطابقة 🔎
+    </div>
+
+</main>
+
+
+<footer>
+
+    © 2026 SOFAIN DOWNLOAD
+
+    <br><br>
+
+    جميع البرامج يتم توجيهها إلى مصادرها الرسمية.
+
+</footer>
+
+
+<script>
+
+let currentCategory = "all";
+
+
+function filterCategory(category, button) {
+
+    currentCategory = category;
+
+    document
+        .querySelectorAll(".category")
+        .forEach(btn => {
+            btn.classList.remove("active");
+        });
+
+    button.classList.add("active");
+
+    applyFilters();
+}
+
+
+document
+    .getElementById("search")
+    .addEventListener("input", applyFilters);
+
+
+function applyFilters() {
+
+    const search =
+        document
+        .getElementById("search")
+        .value
+        .toLowerCase()
+        .trim();
+
+    const cards =
+        document.querySelectorAll(".card");
+
+    let visible = 0;
+
+    cards.forEach(card => {
+
+        const name =
+            card.dataset.name
+            .toLowerCase();
+
+        const category =
+            card.dataset.category;
+
+        const matchesSearch =
+            name.includes(search);
+
+        const matchesCategory =
+            currentCategory === "all" ||
+            category === currentCategory;
+
+        if (
+            matchesSearch &&
+            matchesCategory
+        ) {
+
+            card.style.display = "";
+
+            visible++;
+
+        } else {
+
+            card.style.display = "none";
+
+        }
+
+    });
+
+
+    document
+        .getElementById("noResults")
+        .style.display =
+        visible === 0
+        ? "block"
+        : "none";
+}
+
+</script>
 
 </body>
 </html>
