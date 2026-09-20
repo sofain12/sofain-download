@@ -10,683 +10,504 @@ html {
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background: #05080f;
-    color: white;
-    min-height: 100vh;
+    background: #050b14;
+    color: #ffffff;
+    overflow-x: hidden;
 }
 
-
-/* Background */
+/* =========================
+   BACKGROUND
+========================= */
 
 .background {
     position: fixed;
     inset: 0;
     z-index: -2;
-
     background:
-        radial-gradient(
-            circle at 20% 20%,
-            rgba(0, 140, 255, 0.16),
-            transparent 30%
-        ),
-
-        radial-gradient(
-            circle at 80% 40%,
-            rgba(0, 255, 255, 0.08),
-            transparent 30%
-        ),
-
-        #05080f;
+        radial-gradient(circle at 20% 20%, rgba(0, 255, 200, 0.08), transparent 30%),
+        radial-gradient(circle at 80% 70%, rgba(0, 140, 255, 0.08), transparent 30%),
+        #050b14;
 }
 
+.background::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(0, 255, 200, 0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 255, 200, 0.025) 1px, transparent 1px);
+    background-size: 45px 45px;
+}
 
-/* Header */
+/* =========================
+   HEADER
+========================= */
 
 .header {
     width: 100%;
-    height: 75px;
-
+    padding: 22px 7%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-
-    padding: 0 7%;
-
-    border-bottom: 1px solid rgba(255,255,255,0.07);
-
-    background: rgba(5,8,15,0.75);
-
-    backdrop-filter: blur(15px);
-
+    border-bottom: 1px solid rgba(0, 255, 200, 0.08);
+    background: rgba(5, 11, 20, 0.75);
+    backdrop-filter: blur(12px);
     position: sticky;
     top: 0;
-
     z-index: 100;
 }
-
-
-/* Logo */
 
 .logo {
     display: flex;
     flex-direction: column;
+    line-height: 1;
 }
 
 .logo span {
-    font-size: 22px;
+    font-size: 25px;
     font-weight: 900;
-    letter-spacing: 2px;
-
-    color: #00d9ff;
+    letter-spacing: 3px;
+    color: #00ffc8;
 }
 
 .logo small {
+    margin-top: 5px;
     font-size: 9px;
     letter-spacing: 4px;
-    color: #7e8da3;
+    color: #7d8b9d;
 }
 
-
-/* Navigation */
-
-.header nav {
+nav {
     display: flex;
     gap: 30px;
 }
 
-.header nav a {
-    color: #9ca9bb;
+nav a {
+    color: #aab6c5;
     text-decoration: none;
-
     font-size: 14px;
-
     transition: 0.25s;
 }
 
-.header nav a:hover {
-    color: #00d9ff;
+nav a:hover {
+    color: #00ffc8;
 }
 
-
-/* Hero */
+/* =========================
+   HERO
+========================= */
 
 .hero {
     min-height: 520px;
-
     display: flex;
     justify-content: center;
     align-items: center;
-
     text-align: center;
-
-    padding: 70px 20px;
+    padding: 80px 20px;
 }
-
 
 .hero-content {
     max-width: 850px;
 }
 
-
-/* Badge */
-
 .badge {
     display: inline-block;
-
-    padding: 9px 17px;
-
+    padding: 9px 16px;
+    border: 1px solid rgba(0, 255, 200, 0.25);
     border-radius: 30px;
-
-    background: rgba(0,217,255,0.08);
-
-    border: 1px solid rgba(0,217,255,0.2);
-
-    color: #00d9ff;
-
-    font-size: 12px;
-    font-weight: bold;
-
+    color: #00ffc8;
+    background: rgba(0, 255, 200, 0.05);
+    font-size: 11px;
     letter-spacing: 1px;
-
     margin-bottom: 25px;
 }
 
-
-/* Hero title */
-
 .hero h1 {
-    font-size: clamp(45px, 7vw, 82px);
-
+    font-size: clamp(45px, 7vw, 80px);
     line-height: 1.05;
-
     font-weight: 900;
-
-    margin-bottom: 25px;
+    margin-bottom: 22px;
 }
 
 .hero h1 span {
     display: block;
-
-    background: linear-gradient(
-        90deg,
-        #00d9ff,
-        #008cff
-    );
-
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: #00ffc8;
 }
-
 
 .hero p {
-    color: #8895a7;
-
-    font-size: 17px;
-
-    max-width: 600px;
-
-    margin: auto;
-
+    color: #8e9bad;
+    font-size: 16px;
     line-height: 1.7;
+    max-width: 600px;
+    margin: auto;
 }
 
-
-/* Search */
+/* =========================
+   SEARCH
+========================= */
 
 .search-box {
     margin: 35px auto 0;
-
-    max-width: 620px;
-
-    height: 60px;
-
+    width: min(600px, 100%);
+    height: 58px;
     display: flex;
     align-items: center;
-
+    gap: 12px;
     padding: 0 20px;
-
-    border-radius: 15px;
-
-    background: rgba(255,255,255,0.045);
-
-    border: 1px solid rgba(255,255,255,0.08);
-
-    transition: 0.3s;
-}
-
-.search-box:focus-within {
-    border-color: #00d9ff;
-
-    box-shadow:
-        0 0 30px rgba(0,217,255,0.1);
+    border-radius: 14px;
+    background: rgba(10, 20, 33, 0.9);
+    border: 1px solid rgba(0, 255, 200, 0.12);
+    box-shadow: 0 0 30px rgba(0, 255, 200, 0.04);
 }
 
 .search-box span {
-    font-size: 20px;
-    margin-right: 12px;
+    font-size: 19px;
 }
 
 .search-box input {
     width: 100%;
-
-    background: transparent;
-
+    height: 100%;
     border: none;
     outline: none;
-
+    background: transparent;
     color: white;
-
-    font-size: 16px;
+    font-size: 15px;
 }
 
 .search-box input::placeholder {
     color: #647184;
 }
 
-
-/* Apps section */
+/* =========================
+   APPS SECTION
+========================= */
 
 .apps-section {
     width: 86%;
-
     max-width: 1250px;
-
     margin: auto;
-
-    padding: 40px 0 100px;
+    padding: 70px 0;
 }
-
-
-/* Section title */
 
 .section-title {
     display: flex;
-
-    justify-content: space-between;
     align-items: end;
-
+    justify-content: space-between;
     margin-bottom: 30px;
 }
 
 .mini-title {
-    color: #00d9ff;
-
-    font-size: 11px;
-
+    color: #00ffc8;
+    font-size: 10px;
     font-weight: bold;
-
     letter-spacing: 3px;
 }
 
 .section-title h2 {
+    margin-top: 8px;
     font-size: 32px;
-
-    margin-top: 7px;
 }
 
 .app-count {
-    color: #718096;
-
-    font-size: 14px;
+    color: #718094;
+    font-size: 13px;
 }
 
 .app-count span {
-    color: #00d9ff;
+    color: #00ffc8;
     font-weight: bold;
 }
 
-
-/* Categories */
+/* =========================
+   CATEGORIES
+========================= */
 
 .categories {
     display: flex;
-
-    gap: 10px;
-
     flex-wrap: wrap;
-
-    margin-bottom: 30px;
+    gap: 10px;
+    margin-bottom: 35px;
 }
 
 .category {
-    background: #0a101b;
-
-    color: #7f8da2;
-
-    border: 1px solid rgba(255,255,255,0.07);
-
-    padding: 10px 17px;
-
+    border: 1px solid rgba(0, 255, 200, 0.12);
+    background: rgba(10, 20, 33, 0.8);
+    color: #8290a3;
+    padding: 10px 16px;
     border-radius: 10px;
-
     cursor: pointer;
-
-    font-size: 13px;
-
     transition: 0.25s;
 }
 
 .category:hover {
-    color: white;
-
-    border-color: #00d9ff;
+    color: #00ffc8;
+    border-color: rgba(0, 255, 200, 0.35);
 }
 
 .category.active {
-    color: white;
-
-    background: #006d86;
-
-    border-color: #00d9ff;
-
-    box-shadow:
-        0 0 20px rgba(0,217,255,0.12);
+    background: rgba(0, 255, 200, 0.1);
+    border-color: rgba(0, 255, 200, 0.45);
+    color: #00ffc8;
 }
 
-
-/* Grid */
+/* =========================
+   APP GRID
+========================= */
 
 .app-grid {
     display: grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
 }
 
-
-/* Card */
-
 .app-card {
     position: relative;
+    padding: 23px;
+    border-radius: 18px;
+    background: rgba(10, 20, 33, 0.78);
+    border: 1px solid rgba(255, 255, 255, 0.055);
+    transition: 0.3s ease;
+    overflow: hidden;
+}
 
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,0.055),
-            rgba(255,255,255,0.015)
-        );
-
-    border: 1px solid rgba(255,255,255,0.08);
-
-    border-radius: 20px;
-
-    padding: 25px;
-
-    min-height: 270px;
-
-    display: flex;
-
-    flex-direction: column;
-
-    transition:
-        transform 0.3s,
-        border-color 0.3s,
-        box-shadow 0.3s;
+.app-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #00ffc8,
+        transparent
+    );
+    opacity: 0;
+    transition: 0.3s;
 }
 
 .app-card:hover {
-    transform: translateY(-7px);
-
-    border-color: rgba(0,217,255,0.45);
-
-    box-shadow:
-        0 15px 45px rgba(0,0,0,0.35),
-        0 0 30px rgba(0,217,255,0.06);
+    transform: translateY(-6px);
+    border-color: rgba(0, 255, 200, 0.2);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
 }
 
+.app-card:hover::before {
+    opacity: 1;
+}
 
-/* App top */
+/* =========================
+   APP TOP
+========================= */
 
 .app-top {
     display: flex;
-
     align-items: center;
-
     justify-content: space-between;
-
-    margin-bottom: 20px;
+    margin-bottom: 18px;
 }
-
-
-/* Icon */
 
 .app-icon {
     width: 68px;
     height: 68px;
-
-    border-radius: 17px;
-
-    background: #0c1421;
-
-    border: 1px solid rgba(255,255,255,0.08);
-
+    border-radius: 16px;
     display: flex;
-
-    align-items: center;
     justify-content: center;
-
+    align-items: center;
+    background: rgba(0, 255, 200, 0.06);
+    border: 1px solid rgba(0, 255, 200, 0.1);
     overflow: hidden;
 }
 
 .app-icon img {
-    width: 100%;
-    height: 100%;
-
+    width: 48px;
+    height: 48px;
     object-fit: contain;
-
-    padding: 10px;
 }
-
-
-/* Category label */
 
 .app-category {
-    font-size: 10px;
-
-    color: #00d9ff;
-
-    background: rgba(0,217,255,0.08);
-
-    border: 1px solid rgba(0,217,255,0.12);
-
-    padding: 6px 9px;
-
-    border-radius: 8px;
-
+    font-size: 9px;
     text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #647184;
+    background: rgba(255, 255, 255, 0.035);
+    padding: 6px 9px;
+    border-radius: 7px;
 }
 
-
-/* Name */
+/* =========================
+   APP CONTENT
+========================= */
 
 .app-card h3 {
-    font-size: 21px;
-
-    margin-bottom: 8px;
+    font-size: 19px;
+    margin-bottom: 10px;
 }
-
-
-/* Description */
 
 .app-card p {
-    color: #7e8b9f;
-
+    color: #7f8da0;
     font-size: 13px;
-
-    line-height: 1.6;
-
-    margin-bottom: 20px;
+    line-height: 1.65;
+    min-height: 64px;
 }
-
-
-/* Bottom */
 
 .app-bottom {
-    margin-top: auto;
-
     display: flex;
-
     align-items: center;
-
     justify-content: space-between;
-
     gap: 10px;
+    margin-top: 20px;
 }
 
-
-/* Version */
-
 .version {
-    color: #59677a;
-
+    color: #596779;
     font-size: 11px;
 }
 
-
-/* Download button */
+/* =========================
+   DOWNLOAD BUTTON
+========================= */
 
 .download-btn {
     display: inline-flex;
-
     align-items: center;
     justify-content: center;
-
-    gap: 7px;
-
+    padding: 10px 15px;
+    border-radius: 9px;
     text-decoration: none;
-
-    background: #00a9c7;
-
-    color: white;
-
-    border: none;
-
-    padding: 10px 16px;
-
-    border-radius: 10px;
-
+    color: #00140f;
+    background: #00ffc8;
     font-size: 12px;
-
     font-weight: bold;
-
     transition: 0.25s;
 }
 
 .download-btn:hover {
-    background: #00d9ff;
-
-    color: #001018;
-
-    transform: scale(1.03);
+    transform: translateY(-2px);
+    box-shadow: 0 7px 22px rgba(0, 255, 200, 0.2);
 }
 
-
-/* No results */
+/* =========================
+   NO RESULTS
+========================= */
 
 .no-results {
     display: none;
-
     text-align: center;
-
-    padding: 70px 20px;
-
-    color: #718096;
-
-    font-size: 18px;
+    padding: 50px;
+    color: #6d7b8d;
 }
 
-
-/* About */
+/* =========================
+   ABOUT
+========================= */
 
 .about {
     width: 86%;
-
     max-width: 1250px;
-
-    margin: auto;
-
-    padding-bottom: 100px;
+    margin: 20px auto 80px;
 }
 
 .about-box {
     display: flex;
-
     align-items: center;
-
     gap: 25px;
-
     padding: 35px;
-
     border-radius: 20px;
-
-    background: rgba(255,255,255,0.025);
-
-    border: 1px solid rgba(255,255,255,0.07);
+    background: rgba(10, 20, 33, 0.7);
+    border: 1px solid rgba(0, 255, 200, 0.08);
 }
 
 .about-icon {
-    min-width: 65px;
-    height: 65px;
-
-    border-radius: 17px;
-
+    min-width: 70px;
+    height: 70px;
     display: flex;
-
-    align-items: center;
     justify-content: center;
-
-    font-size: 28px;
-
-    background: rgba(0,217,255,0.08);
-
-    border: 1px solid rgba(0,217,255,0.15);
+    align-items: center;
+    border-radius: 18px;
+    background: rgba(0, 255, 200, 0.07);
+    color: #00ffc8;
+    font-size: 30px;
 }
 
-.about h2 {
-    margin: 7px 0 10px;
-
-    font-size: 25px;
+.about-box h2 {
+    margin: 8px 0 10px;
 }
 
-.about p {
-    color: #7d899a;
-
+.about-box p {
+    color: #7e8b9c;
     line-height: 1.7;
-
     font-size: 14px;
 }
 
-
-/* Footer */
+/* =========================
+   FOOTER
+========================= */
 
 footer {
+    padding: 45px 20px;
     text-align: center;
-
-    padding: 50px 20px;
-
-    border-top: 1px solid rgba(255,255,255,0.06);
-
-    color: #586579;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    color: #566477;
 }
 
 .footer-logo {
-    color: #00d9ff;
-
-    font-size: 16px;
-
+    color: #00ffc8;
+    font-size: 17px;
     font-weight: bold;
-
     letter-spacing: 2px;
-
-    margin-bottom: 12px;
+    margin-bottom: 10px;
 }
 
 footer p {
     font-size: 12px;
-
-    margin-bottom: 15px;
+    margin-bottom: 8px;
 }
 
 footer span {
     font-size: 11px;
 }
 
-
-/* Responsive */
+/* =========================
+   RESPONSIVE
+========================= */
 
 @media (max-width: 950px) {
-
     .app-grid {
-        grid-template-columns:
-            repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr);
     }
-
-}
-
-
-@media (max-width: 650px) {
 
     .header {
-        padding: 0 5%;
-    }
-
-    .header nav {
-        display: none;
-    }
-
-    .hero {
-        min-height: 470px;
-    }
-
-    .hero h1 {
-        font-size: 48px;
+        padding: 20px 5%;
     }
 
     .apps-section,
     .about {
         width: 90%;
+    }
+}
+
+@media (max-width: 650px) {
+    .header {
+        padding: 18px 5%;
+    }
+
+    nav {
+        gap: 15px;
+    }
+
+    nav a {
+        font-size: 12px;
+    }
+
+    .hero {
+        min-height: 470px;
+        padding: 60px 20px;
+    }
+
+    .hero h1 {
+        font-size: 45px;
     }
 
     .app-grid {
@@ -694,17 +515,23 @@ footer span {
     }
 
     .section-title {
-        align-items: start;
-
+        align-items: flex-start;
+        gap: 15px;
         flex-direction: column;
-
-        gap: 10px;
     }
 
     .about-box {
         flex-direction: column;
-
-        align-items: flex-start;
+        text-align: center;
     }
 
+    .categories {
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        padding-bottom: 5px;
+    }
+
+    .category {
+        white-space: nowrap;
+    }
 }

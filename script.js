@@ -116,6 +116,21 @@ const apps = [
         image: "assets/7zip.png",
         link: "files/7zip.exe",
         direct: true
+    },
+
+    // =========================
+    // SOFAIN
+    // =========================
+
+    {
+        name: "SOFAIN Security Guard",
+        icon: "🛡️",
+        description: "Local file security analyzer for checking suspicious files and security indicators.",
+        category: "tools",
+        version: "SOFAIN Security Guard",
+        image: "assets/sofain-security-guard.png",
+        link: "files/SOFAIN-Security-Guard.exe",
+        direct: true
     }
 
 ];
